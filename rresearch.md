@@ -1,5 +1,5 @@
-# RResearch
-# Reproducible Research - Peer Assessment 2
+# Types of weather events are most harmful with respect to population health and greatest economic consequences
+Reproducible Research - Peer Assessment 2
 
 ## Synopsis
 
@@ -55,28 +55,28 @@ The information in this data file are not consolidated and cleaned. For example,
 ```r
 StormData$EVTYPE <- as.character(StormData$EVTYPE)
 StormData$EVTYPE = toupper(StormData$EVTYPE)
-StormData$EVTYPE[grepl("AVALANC", StormData$EVTYPE, ignore.case = TRUE)] <- "AVALANCHE" 
-StormData$EVTYPE[grepl("COLD", StormData$EVTYPE, ignore.case = TRUE)] <- "COLD"  
-StormData$EVTYPE[grepl("HYPOTHERMIA", StormData$EVTYPE, ignore.case = TRUE)] <- "COLD"  
-StormData$EVTYPE[grepl("FIRE", StormData$EVTYPE, ignore.case = TRUE)] <- "FIRE"  
-StormData$EVTYPE[grepl("FLOOD", StormData$EVTYPE, ignore.case = TRUE)] <- "FLOOD"  
-StormData$EVTYPE[grepl("HAIL", StormData$EVTYPE, ignore.case = TRUE)] <- "HAIL"  
-StormData$EVTYPE[grepl("HEAT", StormData$EVTYPE, ignore.case = TRUE)] <- "HEAT" 
-StormData$EVTYPE[grepl("HYPERTHERMIA", StormData$EVTYPE, ignore.case = TRUE)] <- "HEAT" 
-StormData$EVTYPE[grepl("HURRICAN", StormData$EVTYPE, ignore.case = TRUE)] <- "HURRICANE"
-StormData$EVTYPE[grepl("LIGHT", StormData$EVTYPE, ignore.case = TRUE)] <- "LIGHTNING"  
-StormData$EVTYPE[grepl("RAIN", StormData$EVTYPE, ignore.case = TRUE)] <- "RAIN"  
-StormData$EVTYPE[grepl("PRECIP", StormData$EVTYPE, ignore.case = TRUE)] <- "RAIN"  
-StormData$EVTYPE[grepl("RIP CURRENT", StormData$EVTYPE, ignore.case = TRUE)] <- "RIP CURRENT"
-StormData$EVTYPE[grepl("SNOW", StormData$EVTYPE, ignore.case = TRUE)] <- "SNOW"  
-StormData$EVTYPE[grepl("WINTER STORM", StormData$EVTYPE, ignore.case = TRUE)] <- "SNOW"
-StormData$EVTYPE[grepl("ICE STORM", StormData$EVTYPE, ignore.case = TRUE)] <- "SNOW"
-StormData$EVTYPE[grepl("STORM SURGE", StormData$EVTYPE, ignore.case = TRUE)] <- "STORM"
-StormData$EVTYPE[grepl("TROPICAL.*STORM", StormData$EVTYPE, ignore.case = TRUE)] <- "STORM"  
-StormData$EVTYPE[grepl("THUN.*ORM", StormData$EVTYPE, ignore.case = TRUE)] <- "THUNDERSTORM"  
-StormData$EVTYPE[grepl("TSTM", StormData$EVTYPE, ignore.case = TRUE)] <- "THUNDERSTORM"  
-StormData$EVTYPE[grepl("TORNAD", StormData$EVTYPE, ignore.case = TRUE)] <- "TORNADO"  
-StormData$EVTYPE[grepl("WIND", StormData$EVTYPE, ignore.case = TRUE)] <- "WIND"  
+StormData$EVTYPE[grepl("AVALANC", StormData$EVTYPE)] <- "AVALANCHE" 
+StormData$EVTYPE[grepl("COLD", StormData$EVTYPE)] <- "COLD"  
+StormData$EVTYPE[grepl("HYPOTHERMIA", StormData$EVTYPE)] <- "COLD"  
+StormData$EVTYPE[grepl("FIRE", StormData$EVTYPE)] <- "FIRE"  
+StormData$EVTYPE[grepl("FLOOD", StormData$EVTYPE)] <- "FLOOD"  
+StormData$EVTYPE[grepl("HAIL", StormData$EVTYPE)] <- "HAIL"  
+StormData$EVTYPE[grepl("HEAT", StormData$EVTYPE)] <- "HEAT" 
+StormData$EVTYPE[grepl("HYPERTHERMIA", StormData$EVTYPE)] <- "HEAT" 
+StormData$EVTYPE[grepl("HURRICAN", StormData$EVTYPE)] <- "HURRICANE"
+StormData$EVTYPE[grepl("LIGHT", StormData$EVTYPE)] <- "LIGHTNING"  
+StormData$EVTYPE[grepl("RAIN", StormData$EVTYPE)] <- "RAIN"  
+StormData$EVTYPE[grepl("PRECIP", StormData$EVTYPE)] <- "RAIN"  
+StormData$EVTYPE[grepl("RIP CURRENT", StormData$EVTYPE)] <- "RIP CURRENT"
+StormData$EVTYPE[grepl("SNOW", StormData$EVTYPE)] <- "SNOW"  
+StormData$EVTYPE[grepl("WINTER STORM", StormData$EVTYPE)] <- "SNOW"
+StormData$EVTYPE[grepl("ICE STORM", StormData$EVTYPE)] <- "SNOW"
+StormData$EVTYPE[grepl("STORM SURGE", StormData$EVTYPE)] <- "STORM"
+StormData$EVTYPE[grepl("TROPICAL.*STORM", StormData$EVTYPE)] <- "STORM"  
+StormData$EVTYPE[grepl("THUN.*ORM", StormData$EVTYPE)] <- "THUNDERSTORM"  
+StormData$EVTYPE[grepl("TSTM", StormData$EVTYPE)] <- "THUNDERSTORM"  
+StormData$EVTYPE[grepl("TORNAD", StormData$EVTYPE)] <- "TORNADO"  
+StormData$EVTYPE[grepl("WIND", StormData$EVTYPE)] <- "WIND"  
 StormData$EVTYPE <- as.factor(StormData$EVTYPE)
 ```
 
@@ -120,6 +120,9 @@ StormData[StormData$CROPDMGEXP == "B", ]$CROPDMG <- StormData[StormData$CROPDMGE
 ```r
 by_evtype <- StormData %>% select(EVTYPE, FATALITIES, INJURIES, PROPDMG, CROPDMG, CROPDMGEXP, PROPDMGEXP) %>% group_by (EVTYPE)
 ```
+
+
+## Results
 
 ### Analysing which types of events are most harmful with respect to population health
 
